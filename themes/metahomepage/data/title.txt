@@ -1,0 +1,2 @@
+Six: a static site generator for homepages and landing pages
+

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0;'>
+    <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link rel='stylesheet' href='styles/semantic.min.css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/monokai_sublime.min.css">
+    <link rel='stylesheet' href='styles/main.css'>
+</head>
+<body>
+    <section class="ui grid" style="padding: 50px;">
+        <aside class="three wide column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="<%= backgroundImage %>">
+                </div><!-- image -->
+                <div class="content">
+                    <a class="header">Six</a>
+                    <div class="meta">
+                        <span class="date">Simple, flexible, theme-able static site generator. </span>
+                    </div>
+                    <div class="description">
+                    </div>
+                </div><!-- content -->
+            </div><!-- ui card -->
+            <%= nav %>
+        </aside>
+        <div class="one wide column"></div>
+        <main class="eleven wide column">
+            <%= intro %>
+            <br />
+            <%= themes %>
+            <br />
+            <%= installation %>
+            <br />
+            <%= additional %>
+        </main>
+    </section>
+    <%= footer %>
+
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+    <script src='javascript/semantic.min.js'></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+    <script src='javascript/main.js'></script>
+</body>
+</html>

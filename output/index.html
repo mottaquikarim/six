@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0;'>
+    <title>Six: a static site generator for homepages and landing pages
+</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link rel='stylesheet' href='styles/semantic.min.css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/styles/monokai_sublime.min.css">
+    <link rel='stylesheet' href='styles/main.css'>
+</head>
+<body>
+    <section class="ui grid" style="padding: 50px;">
+        <aside class="three wide column">
+            <div class="ui card">
+                <div class="image">
+                    <img src="assets/background.jpg">
+                </div><!-- image -->
+                <div class="content">
+                    <a class="header">Six</a>
+                    <div class="meta">
+                        <span class="date">Simple, flexible, theme-able static site generator. </span>
+                    </div>
+                    <div class="description">
+                    </div>
+                </div><!-- content -->
+            </div><!-- ui card -->
+            <p><strong><a href="#themes">Themes</a></strong></p>
+<p><strong><a href="#install">Installing <u>Six</u></a></strong></p>
+<p><strong><a href="#tricks">Additional notes + tricks</a></strong></p>
+
+        </aside>
+        <div class="one wide column"></div>
+        <main class="eleven wide column">
+            <header class="card" style="padding: 0;">
+    <div class="ui header"><u>Six</u>: a static site generator for homepages and landing pages</div>
+    <p>Six is a super simple static site generator that keeps things as simple as possible. It uses <strong>underscorejs</strong> as the templating engine and a simple <strong>config.json</strong> to keep track of partials.</p>
+</header>
+
+            <br />
+            <div class="card">
+    <div class="ui header">
+        <a href="#themes" id="themes">#</a> Themes
+    </div>
+
+<p>Here are the currently installed themes.</p>
+<p><strong>Classic</strong>
+<br />
+<br />
+<br /></p>
+<iframe src="http://mottaquikarim.github.io/homepage-t1/" class="theme-frame"></iframe>
+<br />
+<br />
+<br />
+<strong>Default</strong>
+<br />
+<br />
+<br />
+<iframe src="http://mottaquikarim.github.io/homepage-t2/" class="theme-frame"></iframe>
+<br />
+<br />
+<br />
+<strong>MetaHomepage</strong>
+<br />
+<br />
+<br />
+<iframe src="http://localhost:8001/" class="theme-frame"></iframe>
+
+<p><br /></p>
+<p></div></p>
+
+            <br />
+            <div class="card">
+    <div class="ui header">
+        <a href="#install" id="install">#</a> Installing <u>Six</u>
+    </div>
+
+<p><strong>Step 1</strong>
+Clone the git repo</p>
+<pre><code class="lang-bash">$ git clone
+</code></pre>
+<p>(cd into your cloned repo!)</p>
+<p><strong>Step 2</strong>
+Run npm init</p>
+<pre><code class="lang-bash">$ npm init
+</code></pre>
+<p><strong>Step 3</strong>
+Set configurations</p>
+<pre><code class="lang-bash">$ vim config.json
+</code></pre>
+<p>(or, open in your favorite code editor)</p>
+<pre><code class="lang-js">{
+    // leave this as is
+    &quot;themeLookup&quot;: &quot;themes/&quot;,
+    // this is the folder you want your built site to live in
+    // MUST BE an absolute path
+    &quot;outputPath&quot;: &quot;/Users/johnsmith/Desktop/landingPagePrototype&quot;,
+    // you may look in the themes/ directory to find supported themes
+    // or, make your own!
+    &quot;theme&quot;: &quot;classic&quot;
+}
+</code></pre>
+<p><strong>Step 4</strong>
+Run your watcher</p>
+<pre><code class="lang-bash">$ node press -d themes/classic/data/
+</code></pre>
+<p>(or, whichever theme you chose in config)</p>
+<p>At this point, if you point your browser to index.html in whatever you set your <strong>outputPath</strong> to, you should see one of the three themes displayed above.</p>
+<p><strong>Step 5</strong>
+Add your data
+Add your data</p>
+<pre><code class="lang-bash">cd themes/classic/data
+vim aboutMe.md
+</code></pre>
+<p>(or, open in your favorite code editor)</p>
+<p><strong>Step 6</strong>
+Make a change!</p>
+<p>You will notice a notification (if you are on a mac) once the changes have been processed. If you open up the outputPath you specified in your config.json in a browser, you should see your built webpage!</p>
+<p></div></p>
+
+            <br />
+            <div class="card">
+    <div class="ui header">
+        <a href="#tricks" id="tricks">#</a> Additional notes + tricks
+    </div>
+
+<p><strong>You can run the built command without a watch</strong></p>
+<p>Just do the following:</p>
+<pre><code class="lang-bash">$ node app/index.js
+</code></pre>
+<p>Note that:</p>
+<pre><code class="lang-bash">$ node app/index.js -h
+
+    Usage: index [options]
+
+    Options:
+
+    -h, --help               output usage information
+    -V, --version            output the version number
+    -t, --theme [themename]  choose a theme [default]
+    -o, --output [output]    choose output path [output]
+</code></pre>
+<p>You may specify theme name and output path via commandline -- however, config.json values for theme and output path will <strong>always</strong> override command line args.</p>
+<p>For example:</p>
+<pre><code class="lang-bash">$ node app/index.js -o /Users/johnsmith/Desktop/output
+</code></pre>
+<p>will output your build files to a folder in the Desktop using the default theme.</p>
+<p>And:</p>
+<pre><code class="lang-bash">$ node app/index.js -o /Users/johnsmith/Desktop/output -t classic
+</code></pre>
+<p>will do the same as above but classic theme will be used</p>
+<p><strong>Adding additional data with theme/THEMENAME/config.json</strong></p>
+<p>Each theme folder has three important parts:</p>
+<ol>
+<li><strong>static</strong> folder containing html/css/js for output site</li>
+<li><strong>data</strong> folder containing markdown and text files to be built</li>
+<li><strong>config.json</strong> specific to that theme that specifies names that <u>Six</u> can use to identify which information block goes where.</li>
+</ol>
+<p>You can modify the theme config.json at any time or create your own theme by copying an existing theme.</p>
+<p>A typical theme&#39;s config.json looks like this:</p>
+<pre><code class="lang-js">{
+    // you can ignore this, unless you want to rename your thereme&#39;s static directory
+    &quot;staticBase&quot;: &quot;static/&quot;,
+    // determines which files need to be built
+    &quot;data&quot;: {
+        // specifies data inputs for index.html
+        &quot;index.html&quot;: {
+            // the &quot;title&quot; key will be used in index.html to tell Six to input data from data/title.txt into the right area
+            &quot;title&quot;: &quot;data/title.txt&quot;,
+            &quot;backgroundImage&quot;: &quot;data/backgroundImage.txt&quot;,
+            &quot;intro&quot;: &quot;data/intro.md&quot;,
+            &quot;installation&quot;: &quot;data/installation.md&quot;,
+            &quot;additional&quot;: &quot;data/additional.md&quot;,
+            &quot;footer&quot;: &quot;data/footer.md&quot;
+        }
+        // you can add additional HTML files and data inputs by copying the index.html block and changing names
+    }
+}
+</code></pre>
+<p>if we were to open up this theme&#39;s index.html, it might look something like this:</p>
+<pre><code class="lang-html">&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;meta charset=&#39;utf-8&#39;&gt;
+    &lt;meta name=&#39;viewport&#39; content=&#39;width=device-width, initial-scale=1.0;&#39;&gt;
+    &lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+    &lt;link rel=&#39;stylesheet&#39; href=&#39;styles/semantic.min.css&#39;&gt;
+    &lt;link rel=&#39;stylesheet&#39; href=&#39;styles/main.css&#39;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;section class=&quot;col glbl--mobile-block&quot;&gt;
+        &lt;section class=&quot;col__full glbl--mobile-full infoCol&quot;&gt;
+            &lt;header style=&quot;background-image: url(&#39;&lt;%= backgroundImage %&gt;&#39;);&quot;&gt;
+                &lt;div class=&quot;profile-pic&quot;&gt;
+                    &lt;img class=&quot;ui small circular image image--center&quot; src=&quot;&lt;%= profileImage %&gt;&quot;&gt; 
+                &lt;/div&gt;
+                &lt;h1 class=&quot;supermassive supermassive--light supermassive--center&quot;&gt;&lt;%= name %&gt;&lt;/h1&gt;
+            &lt;/header&gt;
+            &lt;main class=&quot;main-info&quot;&gt;
+                &lt;%= aboutMe %&gt;
+            &lt;/main&gt;
+            &lt;%= footer %&gt;
+        &lt;/section&gt;
+     &lt;/section&gt;
+    &lt;script src=&#39;http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js&#39;&gt;&lt;/script&gt;
+    &lt;script src=&#39;javascript/semantic.min.js&#39;&gt;&lt;/script&gt;
+    &lt;script src=&#39;javascript/main.js&#39;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>See this block on the 6th line?</p>
+<pre><code class="lang-html">&lt;title&gt;&lt;%= title %&gt;&lt;/title&gt;
+</code></pre>
+<p>The &quot;title&quot; corresponds to the &quot;title&quot; key we saw in the config.json above (reproduce below for your convenience):</p>
+<pre><code class="lang-js">{
+    // you can ignore this, unless you want to rename your thereme&#39;s static directory
+    &quot;staticBase&quot;: &quot;static/&quot;,
+    // determines which files need to be built
+    &quot;data&quot;: {
+        // specifies data inputs for index.html
+        &quot;index.html&quot;: {
+            // the &quot;title&quot; key will be used in index.html to tell Six to input data from data/title.txt into the right area
+            &quot;title&quot;: &quot;data/title.txt&quot;,
+            &quot;backgroundImage&quot;: &quot;data/backgroundImage.txt&quot;,
+            &quot;intro&quot;: &quot;data/intro.md&quot;,
+            &quot;installation&quot;: &quot;data/installation.md&quot;,
+            &quot;additional&quot;: &quot;data/additional.md&quot;,
+            &quot;footer&quot;: &quot;data/footer.md&quot;
+        }
+        // you can add additional HTML files and data inputs by copying the index.html block and changing names
+    }
+}
+</code></pre>
+<p>You can add as many of these keys as you want to your index.html. As long as there is a one to one relationship between keys you put in the real index.html and the &quot;index.html&quot; key in config.json.G</p>
+<p>Also note best practice if you want to add or remove data fields from a theme is to just copy the folder, rename the theme, and go from there.</p>
+<p>And finally, note that we are using underscorejs&#39;s templating system. More info <strong><a href="http://underscorejs.org/#template">here</a></strong></p>
+<p></div></p>
+
+        </main>
+    </section>
+    <div class="ui inverted vertical footer segment">
+        <div class="ui center aligned container" style="margin: 0 50px;">
+            <div class="ui stackable inverted divided grid">
+                <div class="sixteen wide column">
+                    <small>
+                        Built by your boy
+                        <a class="footer__anch" href="http://twitter.com/the_taqquikarim" target="_blank" style="color: white; text-decoration: underline;">Taq Karim</a> with
+                        <a class="footer__anch" href="http://mottaquikarim.github.io/six" target="_blank" style="color: white; text-decoration: underline;">this</a>,
+                        <a class="footer__anch" href="https://nodejs.org/en/" target="_blank" style="color: white; text-decoration: underline;">this</a>,
+                        <img src="assets/coffee.svg" width="16" class="footer__image">,
+                        and 
+                        <img src="assets/heart.svg" width="16" class="footer__image" style="position: relative; top: 3px;">
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+    <script src='javascript/semantic.min.js'></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.0.0/highlight.min.js"></script>
+    <script src='javascript/main.js'></script>
+</body>
+</html>
