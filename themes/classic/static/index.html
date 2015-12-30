@@ -10,23 +10,12 @@
 </head>
 <body>
     <section class="col glbl--mobile-block">
-        <section class="col__half glbl--no-mobile imageCol" style="background-image: url('<%= backgroundImage %>');">
-
-            <div class="col col--wrap">
-                <div class="col__half col--height-third">
-                    <%= blockquote %>
-                </div>
-            </div>
-
-
-
-        </section>
-        <section class="col__half glbl--mobile-full infoCol">
-            <header>
+        <section class="col__full glbl--mobile-full infoCol">
+            <header style="background-image: url('<%= backgroundImage %>');">
                 <div class="profile-pic">
-                    <img class="ui tiny circular image" src="<%= profileImage %>"> 
+                    <img class="ui small circular image image--center" src="<%= profileImage %>"> 
                 </div>
-                <h1 class="supermassive"><%= name %></h1>
+                <h1 class="supermassive supermassive--light supermassive--center"><%= name %></h1>
             </header>
             <main class="main-info">
                 <%= aboutMe %>

@@ -57,7 +57,13 @@ __.readFiles = function( basePath, data, outputPath ) {
                 .then(function(fileDataItemData) {
                     var outputFilePath = path.join( outputPath, file );
                     var isUndefined = typeof transformedData[ outputFilePath ] === "undefined";
-                    var markedData = marked( fileDataItemData );
+                    var markedData;
+                    if ( fileData[ fileDataItem ].split('.').pop() === 'md' ) {
+                        markedData = marked( fileDataItemData );
+                     }
+                     else {
+                        markedData = fileDataItemData.replace(/\n$/, "");
+                     }
 
                     if ( isUndefined ) {
                         transformedData[ outputFilePath ] = {};

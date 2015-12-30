@@ -7,7 +7,6 @@
             "profileImage": "data/profileImage.txt",
             "name":"data/name.txt",
             "aboutMe": "data/aboutMe.md",
-            "blockquote": "data/blockquote.md",
             "footer": "data/footer.md"
         }
     }

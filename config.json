@@ -1,4 +1,5 @@
 {
     "themeLookup": "themes/",
-    "outputPath": "/Users/mottaquikarim/Desktop/output"
+    "outputPath": "/Users/mottaquikarim/Desktop/output",
+    "theme": "default"
 }
