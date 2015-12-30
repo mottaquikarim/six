@@ -1,3 +1,4 @@
 {
-    "themeLookup": "themes/"
+    "themeLookup": "themes/",
+    "outputPath": "/Users/mottaquikarim/Desktop/output"
 }

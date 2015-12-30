@@ -26,5 +26,9 @@ module.exports = function LogComment( msg, level, timeStamp ) {
         msg += moment().format( timeStamp );
     }
 
+    if ( levelAsKey === 'success' ) {
+        //msg += '\n';
+    }
+
     console.log( msg[ lvlColor ] );
 } // LogComment
