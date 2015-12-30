@@ -1,0 +1,12 @@
+{
+    "staticBase": "static/",
+    "data": {
+        "index.html": {
+            "heading": "data/heading.md",
+            "body": "data/body.md"
+        },
+        "about.html": {
+            "heading": "data/heading.md"
+        }
+    }
+}
