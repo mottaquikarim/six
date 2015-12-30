@@ -1,0 +1,14 @@
+{
+    "staticBase": "static/",
+    "data": {
+        "index.html": {
+            "title": "data/title.txt",
+            "backgroundImage": "data/backgroundImage.txt",
+            "profileImage": "data/profileImage.txt",
+            "name":"data/name.txt",
+            "aboutMe": "data/aboutMe.md",
+            "blockquote": "data/blockquote.md",
+            "footer": "data/footer.md"
+        }
+    }
+}

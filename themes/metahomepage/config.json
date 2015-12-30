@@ -1,0 +1,15 @@
+{
+    "staticBase": "static/",
+    "data": {
+        "index.html": {
+            "title": "data/title.txt",
+            "backgroundImage": "data/backgroundImage.txt",
+            "nav": "data/nav.md",
+            "intro": "data/intro.md",
+            "themes": "data/themes.md",
+            "installation": "data/installation.md",
+            "additional": "data/additional.md",
+            "footer": "data/footer.md"
+        }
+    }
+}
